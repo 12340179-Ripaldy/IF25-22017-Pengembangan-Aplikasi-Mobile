@@ -9,6 +9,11 @@ fun produkDiAtasHarga(produk: List<Product>, minHarga: Int): List<String> {
     // TODO 1: Saring (filter) produk yang harga-nya > minHarga
     // TODO 2: Urutkan (sortedBy) hasil saringan dari harga termurah
     // TODO 3: Ubah (map) menjadi List<String> berisi nama produk saja
+    
+    return produk
+        .filter { it.harga > minHarga }
+        .sortedBy { it.harga }
+        .map { it.nama }
 
     return emptyList()
 }
@@ -27,3 +32,7 @@ fun main() {
     println(hasil)
     // Expected: [Webcam HD, Keyboard Mechanical, Monitor 24 inch]
 }
+
+// Output:
+// Produk dengan harga di atas Rp100.000 (termurah dulu):
+// [Webcam HD, Keyboard Mechanical, Monitor 24 inch]
