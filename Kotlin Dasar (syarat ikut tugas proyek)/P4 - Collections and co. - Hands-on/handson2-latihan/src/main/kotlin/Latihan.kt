@@ -8,15 +8,15 @@ fun totalPerKategori(transaksi: List<Transaksi>): Map<String, Int> {
     // TODO 1: Kelompokkan (groupBy) transaksi berdasarkan kategori
     // TODO 2: Untuk setiap grup, jumlahkan (sumOf) nominal-nya
     // Hasil akhir: Map<kategori, totalNominal>
-
-    return emptyMap()
+    return transaksi
+        .groupBy { it.kategori }
+        .mapValues { grup -> grup.value.sumOf { it.nominal } }
 }
 
 fun transaksiById(transaksi: List<Transaksi>): Map<String, Transaksi> {
     // TODO 3: Buat Map dari List, dengan `id` transaksi sebagai key,
     //         menggunakan associateBy (agar bisa lookup transaksi via ID)
-
-    return emptyMap()
+    return transaksi.associateBy { it.id }
 }
 
 fun main() {
@@ -35,3 +35,7 @@ fun main() {
     println("Cari TRX03: ${byId["TRX03"]}")
     // Expected: Transaksi(id=TRX03, kategori=Makanan, nominal=35000)
 }
+
+// Output:
+// Total per kategori: {Makanan=85000, Transportasi=35000, Hiburan=100000}
+// Cari TRX03: Transaksi(id=TRX03, kategori=Makanan, nominal=35000)
