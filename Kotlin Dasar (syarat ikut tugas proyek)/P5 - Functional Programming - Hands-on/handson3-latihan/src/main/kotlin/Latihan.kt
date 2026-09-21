@@ -8,11 +8,12 @@
 // semua TODO di bawah — itu normal untuk latihan ini!
 
 fun makeCounter(): () -> Int {
-    // TODO 1: Deklarasikan `var count` bertipe Int, mulai dari 0.
-    // Variabel ini akan "ditangkap" (captured) oleh closure di bawah.
-
-    // TODO 2: Kembalikan sebuah lambda `() -> Int` yang menambah `count`
-    // lalu mengembalikan nilai barunya.
+    var count = 0                   // TODO 1
+    
+    return {                        // TODO 2
+        count += 1
+        count
+    }
 }
 
 fun main() {
@@ -26,3 +27,10 @@ fun main() {
     println(counterB()) // 1 (counterB independen dari counterA)
     println(counterB()) // 2
 }
+
+// Output:
+// 1
+// 2
+// 3
+// 1
+// 2
