@@ -5,7 +5,7 @@
 
 fun describeProfile(nama: String, umur: Int?, kota: String = "Tidak diketahui"): String {
     // TODO 1: Buat val bernama umurText yang berisi:
-    val umurText = umur?.let { "$it tahun" } ?: "???"
+    val umurText = umur?.let { "$it tahun" } ?: "umur tidak diketahui"
     
     // TODO 2: Kembalikan (return) satu String dengan format:
     return "Nama: $nama, Umur: ???, Kota: $kota"
