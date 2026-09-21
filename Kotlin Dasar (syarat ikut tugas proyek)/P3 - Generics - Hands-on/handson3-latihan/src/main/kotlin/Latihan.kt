@@ -11,7 +11,7 @@ open class Animal(val name: String)
 class Cat(name: String) : Animal(name)
 
 // TODO 1: Tambahkan modifier variance yang tepat pada T di sini
-interface Container<T> {
+interface Container<out T> {
     fun get(): T
 }
 
@@ -32,3 +32,5 @@ fun main() {
     // TODO 2: Setelah TODO 1 benar, baris berikut akan bisa di-compile
     printAnimalName(catContainer)
 }
+
+// Output: Whiskers
